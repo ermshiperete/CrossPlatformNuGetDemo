@@ -1,7 +1,12 @@
 <Project DefaultTargets="Compile" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Target Name="Compile">
+	<Import Project="NuGet.targets"/>
+	<PropertyGroup>
+		<SolutionPath>../CrossPlatformNuGet.sln</SolutionPath>
+	</PropertyGroup>
+
+	<Target Name="Compile" DependsOnTargets="RestorePackages">
 	    <MSBuild
-            Projects="../CrossPlatformNuGet.sln"
+            Projects="$(SolutionPath)"
             Targets="Build" />
 	</Target>
 </Project>
