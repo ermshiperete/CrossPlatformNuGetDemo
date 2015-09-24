@@ -46,13 +46,14 @@
   </ItemGroup>
  <Target Name="Build">
    <ItemGroup>
-     <FilesToDelete Include="NuGetBuild\**\*.*" />
+     <FilesToDelete Include="NuGetBuild\**" />
      <AssemblyFiles Include="$(SolutionDir)\MyLibrary\bin\$(Configuration)\MyLibrary.*" />
+     <StaticFiles Include="$(ProjectDir)NuGetAssets\**" />
    </ItemGroup>
    <Delete Files="@(FilesToDelete)" />
    <MakeDir Directories="NuGetBuild" />
    <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="NuGetBuild/lib" />
-   <Copy SourceFiles="$(ProjectDir)NuGetAssets\MyLibrary.nuspec" DestinationFolder="NuGetBuild" />
+   <Copy SourceFiles="@(StaticFiles)" DestinationFolder="NuGetBuild" />
    <PepitaPackage.CreatePackageTask NuGetBuildDirectory="NuGetBuild" MetadataAssembly="MyLibrary.dll" />
  </Target>
 </Project>
