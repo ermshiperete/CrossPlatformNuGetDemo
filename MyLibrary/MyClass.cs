@@ -6,9 +6,9 @@ namespace MyLibrary
 {
 	public static class MyClass
 	{
-		public static int GetOne
+		public static int GetOne()
 		{
-			get { return 1; }
+			return 1;
 		}
 	}
 }

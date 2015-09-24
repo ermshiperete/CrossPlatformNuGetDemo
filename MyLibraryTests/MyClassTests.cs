@@ -10,9 +10,9 @@ namespace MyLibraryTests
 	public class MyClassTests
 	{
 		[Test]
-		public GetOne_ReturnsOne()
+		public void GetOne_ReturnsOne()
 		{
-			Assert.That(MyClass.GetOne, Is.EqualTo(1));
+			Assert.That(MyClass.GetOne(), Is.EqualTo(1));
 		}
 	}
 }
